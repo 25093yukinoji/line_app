@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "homes#top"
+  devise_scope :user do#トップページをログイン画面に
+    root to: "devise/sessions#new"
+  end
+  resources :chats
 end
